@@ -1,3 +1,37 @@
+Template.AdminDashboardEdit.created = ->
+	curCollection = Session.get('admin_collection_name');
+	subs = AdminConfig.collections[curCollection].subscriptions;
+	self = this
+	self.autorun ->
+		_.each subs, (sub) ->
+			self.subscribe sub.name, sub.options
+			return
+		return
+	return
+
+Template.AdminDashboardNew.created = ->
+	curCollection = Session.get('admin_collection_name');
+	subs = AdminConfig.collections[curCollection].subscriptions;
+	self = this
+	self.autorun ->
+		_.each subs, (sub) ->
+			self.subscribe sub.name, sub.options
+			return
+		return
+	return
+
+Template.AdminDashboardView.created = ->
+	curCollection = Session.get('admin_collection_name');
+	subs = AdminConfig.collections[curCollection].subscriptions;
+	self = this
+	self.autorun ->
+		_.each subs, (sub) ->
+			self.subscribe sub.name, sub.options
+			return
+		return
+	return
+
+
 Template.AdminDashboardView.rendered = ->
 	table = @$('.dataTable').DataTable();
 
