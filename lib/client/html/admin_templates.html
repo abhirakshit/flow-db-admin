@@ -24,7 +24,8 @@
 </template>
 
 <template name="AdminDashboardEdit">
-	{{#if isSubReady}}
+	<!--{{#if isSubReady}}-->
+	{{#if Template.subscriptionsReady}}
 	{{> adminAlert}}
 	{{#if adminTemplate admin_collection_name 'edit'}}
 		{{#with adminTemplate admin_collection_name 'edit'}}
@@ -55,7 +56,8 @@
 </template>
 
 <template name="AdminDashboardView">
-	{{#if isSubReady}}
+	<!--{{#if isSubReady}}-->
+	{{#if Template.subscriptionsReady}}
 	{{> adminAlert}}
 	{{#if adminTemplate admin_collection_name 'view'}}
 		{{#with adminTemplate admin_collection_name 'view'}}
