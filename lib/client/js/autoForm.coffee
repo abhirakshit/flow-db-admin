@@ -19,6 +19,7 @@ AutoForm.hooks
 			hook = @
 			Meteor.call 'adminInsertDoc', insertDoc, Session.get('admin_collection_name'), (e,r)->
 				if e
+					console.error(e)
 					hook.done(e)
 				else
 					adminCallback 'onInsert', [Session.get 'admin_collection_name', insertDoc, updateDoc, currentDoc], (collection) ->
