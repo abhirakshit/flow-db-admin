@@ -18,7 +18,7 @@ This package is designed to work with certain types of projects. Your project sh
 * Flow Router - `meteor add kadira:flow-router`
 * Blaze Layout - `meteor add kadira:blaze-layout`
 * Collection Helpers - `meteor add dburles:collection-helpers`
-* Collection2 - `meteor add aldeed:collection2`
+* Collection2 - `meteor add aldeed:collection2-core`
 * An accounts system - e.g. `meteor add accounts-base accounts-password`
 * Roles - `meteor add alanning:roles`
 * Bootstrap 3 - e.g. `meteor add twbs:bootstrap`
@@ -30,7 +30,7 @@ Download to your packages directory and run `meteor add sach:flow-db-admin` then
 #### 2. Config ####
 The simplest possible config with one, 'Posts', collection.
 
-#####Server and Client#####
+##### Server and Client #####
 ```javascript
 AdminConfig = {
   collections: {
@@ -43,8 +43,8 @@ This config will make the **first user** admin.
 You can also set the adminEmails property which will will override this.
 ```javascript
 AdminConfig = {
-  name: 'My App'
-  adminEmails: ['ben@code2create.com']
+  name: 'My App',
+  adminEmails: ['ben@code2create.com'],
   collections: {
     Posts: {}
   }
@@ -120,16 +120,16 @@ AdminConfig = {
 It is possible to configure the way the collection is managed.
 ```
 Comments: {
-  icon: 'comment'
-  omitFields: ['updatedAt']
+  icon: 'comment',
+  omitFields: ['updatedAt'],
   tableColumns: [
    { label: 'Content', name: 'content' },
-   { label: 'Post', name: 'postTitle()' }
+   { label: 'Post', name: 'postTitle()' },
    { label: 'User', name: 'owner', template: 'userEmail' }
   ]
-  showEditColumn: true // Set to false to hide the edit button. True by default.
-  showDelColumn: true // Set to false to hide the edit button. True by default.
-  showWidget: false
+  showEditColumn: true, // Set to false to hide the edit button. True by default.
+  showDelColumn: true, // Set to false to hide the edit button. True by default.
+  showWidget: false,
   color: 'red'
 }
 ```
@@ -257,13 +257,13 @@ AdminConfig = {
 #### Extending Dashboard ####
 There are few things you can do to integrate your package with meteor-admin. Remember to wrap it in Meteor.startup on client.
 
-#####Add sidebar item with single link#####
+##### Add sidebar item with single link #####
 
 ```javascript
 AdminDashboard.addSidebarItem('New User', AdminDashboard.path('/Users/new'), { icon: 'plus' })
 ```
 
-#####Add sidebar item with multiple links#####
+##### Add sidebar item with multiple links #####
 
 ```javascript
 AdminDashboard.addSidebarItem('Analytics', {
@@ -275,7 +275,7 @@ AdminDashboard.addSidebarItem('Analytics', {
 });
 ```
 
-#####Add link to collection item#####
+##### Add link to collection item #####
 
 This will iterate through all collection items in sidebar and call your function. If you return an object with the `title` and `url` properties the link will be added. Otherwise it will be ignored.
 
